@@ -38,4 +38,19 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//Mongo
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect('mongodb://localhost:27017/CNAM', function (err, client) {
+  if (err) throw err;
+
+  var db = client.db('CNAM');
+
+  db.collection('user').find().toArray(function (err, result) {
+    if (err) throw err;
+
+    console.log(result)
+  })
+});
+
 module.exports = app;
