@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div
+    p #{error}
+    form(method='POST' action='/users/')
+      div
+        label(for='firstName') Prénom:
+        input(type='text', placeholder='firstName' name='firstName')
+      div
+        label(for='lastName') Nom:
+        input(type='text', placeholder='lastName' name='lastName')
+      div
+        label(for='age') Age:
+        input(type='text', placeholder='age' name='age')
+      button(type='submit') Register
+
+  div
+    h1(class='blue-text') Liste des utilisateurs
+    ul
+    each user in users
+      li  #{user.firstName} #{user.lastName}, âge:  #{user.age}
+        a(href='/users/edit?id='+ user._id) Edit
+        a(href='/users/delete?id=' + user._id) Delete

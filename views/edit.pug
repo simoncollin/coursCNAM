@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div
+    h1 Edit user
+    form(method='POST' action='/users/edit')
+      div
+        label(for='firstName') firstName:
+        input(type='text', value=user.firstName name='firstName')
+      div
+        label(for='lastName') lastName:
+        input(type='text', value=user.lastName name='lastName')
+      div
+        label(for='age') age:
+        input(type='text', value=user.age name='age')
+      input(type="hidden" value=user._id name='id')
+      button(type='submit') Register

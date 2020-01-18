@@ -41,7 +41,7 @@ app.use(function(err, req, res, next) {
 //Mongo
 var MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017/CNAM', function (err, client) {
+MongoClient.connect('mongodb://localhost:27017', function (err, client) {
   if (err) throw err;
 
   var db = client.db('CNAM');
