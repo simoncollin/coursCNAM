@@ -2,7 +2,7 @@ extends layout
 
 block content
   div
-    h1 Edit user
+    h2 Edit user
     form(method='POST' action='/users/edit')
       div
         label(for='firstName') firstName:
@@ -14,4 +14,6 @@ block content
         label(for='age') age:
         input(type='text', value=user.age name='age')
       input(type="hidden" value=user._id name='id')
-      button(type='submit') Register
+      button(class="btn waves-effect waves-light", type="submit", name="action")
+                <i class="material-icons right">send</i>
+                | Enregistrer
