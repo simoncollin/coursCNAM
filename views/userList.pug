@@ -6,19 +6,24 @@ block content
     form(method='POST' action='/users/')
       div
         label(for='firstName') Prénom:
-        input(type='text', placeholder='firstName' name='firstName')
+        input(type='text', placeholder='Prénom' name='firstName')
       div
         label(for='lastName') Nom:
-        input(type='text', placeholder='lastName' name='lastName')
+        input(type='text', placeholder='Nom' name='lastName')
       div
         label(for='age') Age:
-        input(type='text', placeholder='age' name='age')
-      button(type='submit') Register
+        input(type='text', placeholder='Age' name='age')
+
+      button(class="btn waves-effect waves-light", type="submit", name="action")
+          <i class="material-icons right">send</i>
+          | Ajouter
 
   div
-    h1(class='blue-text') Liste des utilisateurs
-    ul
-    each user in users
-      li  #{user.firstName} #{user.lastName}, âge:  #{user.age}
-        a(href='/users/edit?id='+ user._id) Edit
-        a(href='/users/delete?id=' + user._id) Delete
+    h2(class='blue-text') Liste des utilisateurs
+    ul(class="collection")
+        each user in users
+          li(class='collection-item')  #{user.firstName} #{user.lastName}, #{user.age} ans
+            a(href='/users/edit?id='+ user._id, class='secondary-content')
+                i(class='material-icons') edit
+            a(href='/users/delete?id=' + user._id,  class='secondary-content')
+                    i(class='material-icons') delete
