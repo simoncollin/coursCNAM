@@ -127,9 +127,3 @@ router.post(
 );
 
 module.exports = router;
-
-/*
-TODO:
-- Modification d'une ligne de la bd
-- intégrer materialize pour mettre en forme
-*/
